@@ -141,7 +141,8 @@ const onSubmit = async () => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 .login-header {
@@ -176,7 +177,7 @@ const onSubmit = async () => {
 .login-form {
   background: white;
   border-radius: 16px;
-  padding: 30px 20px;
+  padding: 24px 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   
   .field-icon {
@@ -217,6 +218,16 @@ const onSubmit = async () => {
 }
 
 :deep(.van-field__label) {
-  width: 70px;
+  width: 60px;
+  flex-shrink: 0;
+}
+
+:deep(.van-field__control) {
+  min-width: 0;
+}
+
+:deep(.van-button--small) {
+  padding: 0 12px;
+  font-size: 12px;
 }
 </style>
