@@ -38,6 +38,7 @@
             <template #button>
               <van-button
                 size="small"
+                style="margin-left: 12px;"
                 type="primary"
                 :disabled="countdown > 0 || !phone"
                 @click="sendCode"
@@ -218,8 +219,10 @@ const onSubmit = async () => {
 }
 
 :deep(.van-field__label) {
-  width: 60px;
+  width: 45px;
   flex-shrink: 0;
+  line-height: 32px !important;
+  margin-right: 5px !important;
 }
 
 :deep(.van-field__control) {

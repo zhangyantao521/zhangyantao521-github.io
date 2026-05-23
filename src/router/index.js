@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 
 const routes = [
@@ -27,7 +27,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/zhangyantao521-github.io/'),  // 与 vite.config.js 的 base 一致
+  history: createWebHashHistory('/zhangyantao521-github.io/'),  // 使用 Hash 模式，解决 GitHub Pages 刷新 404 问题
   routes
 })
 
