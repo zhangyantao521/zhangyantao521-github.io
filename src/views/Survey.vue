@@ -10,9 +10,14 @@
     <!-- 问卷完成页面 -->
     <div v-if="surveyStore.isCompleted" class="completed-page">
       <van-empty
-        image="success"
+      
         description="问卷提交成功"
       >
+        <van-image
+          src="/success.png"
+          alt="成功图标"
+          class="success-icon"
+        />
         <template #description>
           <div class="success-content">
             <h3>感谢您的参与！</h3>
@@ -102,14 +107,13 @@
         
         <!-- 多选题 -->
         <template v-else-if="currentQuestion.type === 'checkbox'">
-          <van-checkbox-group v-model="answers[currentQuestion.id]">
+          <van-checkbox-group v-model="surveyStore.answers[currentQuestion.id]">
             <van-cell-group inset>
               <van-cell
                 v-for="option in currentQuestion.options"
                 :key="option.value"
                 :title="option.label"
                 clickable
-                @click="toggleCheckbox(currentQuestion.id, option.value)"
               >
                 <template #right-icon>
                   <van-checkbox :name="option.value" />
@@ -160,14 +164,13 @@
         <div v-if="showFollowUp" class="follow-up-question">
           <van-divider />
           <h4 class="follow-up-title">{{ currentQuestion.followUp.question.title }}</h4>
-          <van-checkbox-group v-model="answers[currentQuestion.followUp.question.id]">
+          <van-checkbox-group v-model="surveyStore.answers[currentQuestion.followUp.question.id]">
             <van-cell-group inset>
               <van-cell
                 v-for="option in currentQuestion.followUp.question.options"
                 :key="option.value"
                 :title="option.label"
                 clickable
-                @click="toggleCheckbox(currentQuestion.followUp.question.id, option.value)"
               >
                 <template #right-icon>
                   <van-checkbox :name="option.value" />
@@ -239,17 +242,7 @@ const getQuestionTypeText = (type) => {
   return typeMap[type] || type
 }
 
-// 切换多选
-const toggleCheckbox = (questionId, value) => {
-  const current = answers.value[questionId] || []
-  const index = current.indexOf(value)
-  if (index > -1) {
-    current.splice(index, 1)
-  } else {
-    current.push(value)
-  }
-  surveyStore.setAnswer(questionId, [...current])
-}
+// 多选状态由 van-checkbox-group 自动处理
 
 // 导航方法
 const nextQuestion = () => {

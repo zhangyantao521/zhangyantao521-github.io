@@ -27,7 +27,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/farm-machinery-survey/'),  // 与 vite.config.js 的 base 一致
+  history: createWebHistory('/zhangyantao521-github.io/'),  // 与 vite.config.js 的 base 一致
   routes
 })
 
