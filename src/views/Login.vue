@@ -70,7 +70,7 @@
     </div>
     
     <div class="login-footer">
-      <p>© 2024 农机问卷调查系统</p>
+      <p>© 2026 大田农舍农机问卷调查系统</p>
     </div>
   </div>
 </template>
